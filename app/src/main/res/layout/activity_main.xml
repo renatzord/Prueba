@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="match_parent"
+            android:layout_height="274dp"
+            android:layout_x="33dp"
+            android:layout_y="5dp"
+            app:srcCompat="@drawable/usu"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <EditText
+            android:id="@+id/txt_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="-2dp"
+            android:layout_y="309dp"
+            android:gravity="center"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="Usuario"
+            android:padding="16dp"
+            android:layout_below="@+id/imagen"/>
+
+        <TextView
+            android:id="@+id/texusuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_usuario"
+            android:layout_centerHorizontal="true"
+            android:layout_x="117dp"
+            android:layout_y="356dp"
+            android:gravity="center"
+            android:text="Ingrese un Usuario"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <EditText
+            android:id="@+id/txt_contra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="-1dp"
+            android:layout_y="390dp"
+            android:gravity="center"
+            android:hint="Minimo 5 Caracteres"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:layout_below="@+id/texusuario"/>
+
+        <TextView
+            android:id="@+id/text_contra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_x="101dp"
+            android:layout_y="440dp"
+            android:gravity="center"
+            android:text="Ingrese una Contraseña"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_below="@id/txt_contra"/>
+
+        <EditText
+            android:id="@+id/txt_V_contra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="0dp"
+            android:layout_y="469dp"
+            android:gravity="center"
+            android:hint="Verifique Porfavor"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:layout_below="@+id/text_contra"/>
+
+        <TextView
+            android:id="@+id/textVr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_x="105dp"
+            android:layout_y="518dp"
+            android:gravity="center"
+            android:text="Verifique su Contraseña"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_below="@+id/txt_V_contra"/>
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registro"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="95dp"
+            android:layout_x="99dp"
+            android:layout_y="579dp"
+            android:text="Registrar" />
+
+        <TextView
+            android:id="@+id/registro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textVr"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="80dp"
+            android:layout_x="82dp"
+            android:layout_y="636dp"
+            android:gravity="center"
+            android:text="Registro Completo"
+            android:textColor="@color/red"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+</layout>
