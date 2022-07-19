@@ -51,6 +51,8 @@ public class Ingreso extends AppCompatActivity {
         binding.txtUsuario.setText(registro.getUsuario());
         binding.valoracion.setRating(valor);
         binding.txtSeguridad.setText(seguridad);
+        binding.txtEmail.setText(registro.getMail());
+        binding.txtRol.setText(registro.getRol());
 
 
 

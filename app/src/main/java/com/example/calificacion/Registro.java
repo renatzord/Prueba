@@ -7,17 +7,24 @@ public class Registro  implements Parcelable {
 private String usuario;
 private String clave;
 private float valor;
+private String mail;
+private String rol;
 
-    public Registro(String usuario, String clave, float valor) {
+    public Registro(String usuario, String clave, float valor, String mail, String rol) {
         this.usuario = usuario;
         this.clave = clave;
         this.valor = valor;
+        this.mail = mail;
+        this.rol = rol;
+
     }
 
     protected Registro(Parcel in){
         usuario = in.readString();
         clave = in.readString();
         valor = in.readFloat();
+        mail = in.readString();
+        rol = in.readString();
     }
 
     @Override
@@ -25,6 +32,8 @@ private float valor;
         dest.writeString(usuario);
         dest.writeString(clave);
         dest.writeFloat(valor);
+        dest.writeString(mail);
+        dest.writeString(rol);
     }
 
     @Override
@@ -67,5 +76,21 @@ private float valor;
 
     public void setValor(float valor) {
         this.valor = valor;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
