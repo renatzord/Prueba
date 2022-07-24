@@ -1,10 +1,16 @@
 package com.example.calificacion;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -16,11 +22,14 @@ import com.example.calificacion.databinding.ActivityMainBinding;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+    ActivityMainBinding binding;
+    Bitmap bitmap;
+    ActivityResultLauncher<Intent> Luncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         EditText txt_usuario = findViewById(R.id.txt_usuario);
@@ -99,8 +108,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MetodoL();
+        binding.imagen.setOnClickListener(v->{
+            abrirCamara();
+        });
 
 
+
+    }
+
+    private void abrirCamara() {
+        Intent camaraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Luncher.launch(camaraintent);
+    }
+
+    public void MetodoL(){
+        Luncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode()==RESULT_OK){
+                    if(result.getData()!=null){
+                        bitmap = result.getData().getExtras().getParcelable("data");
+                        binding.imagen.setImageBitmap(bitmap);
+                    }
+                }
+            }
+        });
     }
 
     private void abrirRegistro(String usu, String contra, float val, String mail, String rol){
@@ -108,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         Registro registro = new Registro(usu, contra, val, mail, rol);
         intent.putExtra(Ingreso.REGISTR0_KEY, registro);
+        intent.putExtra(Ingreso.BITMAP_KEY,bitmap);
 
         startActivity(intent);
     }

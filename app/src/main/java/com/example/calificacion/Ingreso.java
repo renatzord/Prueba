@@ -2,6 +2,7 @@ package com.example.calificacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.example.calificacion.databinding.ActivityIngresoBinding;
@@ -11,6 +12,7 @@ import java.util.regex.Pattern;
 
 public class Ingreso extends AppCompatActivity {
     public static final String REGISTR0_KEY = "Registro";
+    public static final String BITMAP_KEY ="bitmap";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class Ingreso extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         Registro registro = extras.getParcelable(REGISTR0_KEY);
         binding.setRegistro(registro);
+        Bitmap bitmap = extras.getParcelable(BITMAP_KEY);
 
         String contra = registro.getClave();
         float valor = registro.getValor();
@@ -46,6 +49,10 @@ public class Ingreso extends AppCompatActivity {
         }else{
             valor = 1;
             seguridad = "La clave de seguridad se considera Insegura";
+        }
+
+        if(bitmap!=null){
+            binding.perfil.setImageBitmap(bitmap);
         }
 
         binding.txtUsuario.setText(registro.getUsuario());
